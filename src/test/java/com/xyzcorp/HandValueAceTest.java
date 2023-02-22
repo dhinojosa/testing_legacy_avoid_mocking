@@ -2,8 +2,6 @@ package com.xyzcorp;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -12,25 +10,21 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class HandValueAceTest {
 
-  @Test
-  public void handWithOneAceTwoCardsIsValuedAt11() throws Exception {
-    Game game = new Game();
-    List<Card> cards = List.of(new Card("whocares", "A"),
-                               new Card("whocares", "5"));
+    @Test
+    public void handWithOneAceTwoCardsIsValuedAt11() throws Exception {
+        Hand hand = new Hand(new Card(Suit.HEARTS, Rank.ACE),
+            new Card(Suit.HEARTS, Rank.FIVE));
+        assertThat(hand.cardinalValue())
+            .isEqualTo(11 + 5);
+    }
 
-    assertThat(game.handValueOf(cards))
-        .isEqualTo(11 + 5);
-  }
+    @Test
+    public void handWithOneAceAndOtherCardsEqualTo11IsValuedAt1() throws Exception {
+        Hand hand = new Hand(new Card(Suit.HEARTS, Rank.ACE),
+            new Card(Suit.HEARTS, Rank.EIGHT),
+            new Card(Suit.HEARTS, Rank.THREE));
 
-  @Test
-  public void handWithOneAceAndOtherCardsEqualTo11IsValuedAt1() throws Exception {
-    Game game = new Game();
-    List<Card> cards = List.of(new Card("whocares", "A"),
-                               new Card("whocares", "8"),
-                               new Card("whocares", "3"));
-
-    assertThat(game.handValueOf(cards))
-        .isEqualTo(1 + 8 + 3);
-  }
-
+        assertThat(hand.cardinalValue())
+            .isEqualTo(1 + 8 + 3);
+    }
 }

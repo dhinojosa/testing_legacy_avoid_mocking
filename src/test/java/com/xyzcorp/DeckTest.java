@@ -35,13 +35,12 @@ class DeckTest {
   @Test
   public void drawCardFromDeckReturnsValidCard() throws Exception {
     Deck deck = new Deck();
-
     Card card = deck.draw();
 
     assertThat(card)
         .isNotNull();
 
-    assertThat(card.rankValue())
+    assertThat(card.rank().value())
         .isGreaterThan(0);
   }
 
