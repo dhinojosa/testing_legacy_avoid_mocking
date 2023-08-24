@@ -1,9 +1,3 @@
-# basic-java-template
-Basic Java Template with Slf4j, Log4j, Junit Jupiter, Jacoco, AssertJ, JQwik
+# Testing Legacy and Avoid Mocking
 
-
-## Steps to use
-
-1. Select use template
-2. Create your repository
-3. Clone your repository
+Repository for Testing Legacy and Avoid Mocking
